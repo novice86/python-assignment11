@@ -15,6 +15,11 @@ fig = px.scatter(
     x='strength',
     y='frequency',
     color='direction',
-    title="Wind Strength vs Frequency by Direction"
+    title="Wind Strength vs Frequency by Direction",
+    labels={
+        'strength': 'Wind Strength',
+        'frequency': 'Frequency',
+        'direction': 'Wind Direction'
+    }
 )
 fig.write_html("wind.html", auto_open=True)
