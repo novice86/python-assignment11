@@ -18,4 +18,8 @@ with sqlite3.connect('../db/lesson.db') as conn:
     df = pd.read_sql_query(sql_statement, conn)
 
 df.plot(x='last_name', y='revenue', kind='bar', title='Employee Revenue', color='skyblue')
+plt.xlabel('Employee Last Name')
+plt.ylabel('Revenue')
+
+plt.tight_layout()
 plt.show()
