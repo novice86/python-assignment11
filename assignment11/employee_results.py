@@ -11,15 +11,22 @@ sql_statement = """
     JOIN orders o ON e.employee_id = o.employee_id
     JOIN line_items l ON o.order_id = l.order_id
     JOIN products p ON l.product_id = p.product_id
-    GROUP BY e.employee_id
+    GROUP BY e.employee_id, e.last_name
 """
 
 with sqlite3.connect('../db/lesson.db') as conn:
     employee_results = pd.read_sql_query(sql_statement, conn)
 
-employee_results.plot(x='last_name', y='revenue', kind='bar', title='Employee Revenue', color='skyblue')
+employee_results.plot(
+    x='last_name', 
+    y='revenue', 
+    kind='bar', 
+    title='Total Revenue by Employee Last Name', 
+    color='skyblue',
+    legend=False
+)
 plt.xlabel('Employee Last Name')
-plt.ylabel('Revenue')
+plt.ylabel('Revenue ($)')
 
 plt.tight_layout()
 plt.show()

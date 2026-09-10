@@ -1,6 +1,9 @@
 import plotly.express as px
 import plotly.data as pldata
 
+import os
+import webbrowser
+
 
 # Task 3: Interactive Visualizations with Plotly
 df = pldata.wind(return_type='pandas')
@@ -23,3 +26,6 @@ fig = px.scatter(
     }
 )
 fig.write_html("wind.html", auto_open=True, include_plotlyjs="cdn")
+
+file_path = os.path.abspath('wind.html')
+webbrowser.open(f"file://{file_path}")
