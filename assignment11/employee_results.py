@@ -15,9 +15,9 @@ sql_statement = """
 """
 
 with sqlite3.connect('../db/lesson.db') as conn:
-    df = pd.read_sql_query(sql_statement, conn)
+    employee_results = pd.read_sql_query(sql_statement, conn)
 
-df.plot(x='last_name', y='revenue', kind='bar', title='Employee Revenue', color='skyblue')
+employee_results.plot(x='last_name', y='revenue', kind='bar', title='Employee Revenue', color='skyblue')
 plt.xlabel('Employee Last Name')
 plt.ylabel('Revenue')
 
