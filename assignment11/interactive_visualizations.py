@@ -22,4 +22,4 @@ fig = px.scatter(
         'direction': 'Wind Direction'
     }
 )
-fig.write_html("wind.html", auto_open=True)
+fig.write_html("wind.html", auto_open=True, include_plotlyjs="cdn")
